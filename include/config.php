@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define('SITE_NAME', 'Twitter');
 define('HOST', 'http://'.$_SERVER['HTTP_HOST']);

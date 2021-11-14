@@ -10,21 +10,25 @@ include_once "functions.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo SITE_NAME;?></title>
+    <title><?php echo get_page_title($title);?></title>
     <link rel="stylesheet" href="<?php echo get_url('css/style.css'); ?>">
 </head>
 <body>
 <div class="container row">
     <header class="header">
-        <h1 class="visually-hidden"><?php echo SITE_NAME;?></h1>
+        <h1 class="visually-hidden"><?php echo get_page_title($title);?></h1>
         <nav class="header__navigation">
             <ul>
                 <li>
                     <a href="<?php echo get_url(); ?>" class="header__link header__link_main"></a>
                 </li>
                 <li>
-                    <button class="header__link header__link_profile_fill" title="Авторизоваться"></button>
-                    <!--<a href="#" class="header__link header__link_exit" title="Выйти"></a>-->
+
+                    <?php if(!isset($_SESSION['user']['id'])){ ?>
+                        <button class="header__link header__link_profile_fill" title="Авторизоваться"></button>
+                    <?php } else { ?>
+                        <a href="<?php echo get_url('include/logout.php'); ?>" class="header__link header__link_exit" title="Выйти"></a>
+                    <?php }?>
                 </li>
             </ul>
         </nav>

@@ -1,5 +1,6 @@
 </main>
 </div>
+<?php if(!$_SESSION['user']['id']){ ?>
 <div class="modal overlay">
     <div class="container modal__body" id="login-modal">
         <div class="modal-close">
@@ -22,6 +23,7 @@
         </section>
     </div>
 </div>
+<?php } ?>
 <script src="<?php echo get_url('js/scripts.js'); ?>"></script>
 <?php if($error){ ?>
 <script> openModal();</script>

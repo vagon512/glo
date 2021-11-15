@@ -54,7 +54,7 @@ function db_query($sql, $exec = false){
 
 function get_posts($user_id = 0){
     if($user_id > 0){
-        $sql = "SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` on posts.user_id=users.id WHERE posts.user_id={$user_id}";
+        $sql = "SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` on posts.user_id=users.id WHERE posts.user_id='$user_id'";
     }
     else {
         $sql = "SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` on posts.user_id=users.id";
